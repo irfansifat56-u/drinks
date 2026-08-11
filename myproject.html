@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyProject</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="myproject.css" />
+  </head>
+  <body>
+    <div class="search-container">
+      <div>
+        <input
+          class="search-box"
+          id="search-input"
+          placeholder="Search by name"
+        />
+      </div>
+      <div>
+        <button class="search-button" onclick="searchProduct()">Search</button>
+      </div>
+    </div>
+    <div class="product-container">
+      <div class="card-container">
+        <!--card 1-->
+        <div
+          class="card"
+          style="width: 19rem"
+          data-name="Fresh Red Fruit Punch"
+        >
+          <img
+            src="glass-punch-juice.jpg"
+            class="card-img-top"
+            alt="Fresh Red Fruit Punch"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title">Fresh Red Fruit Punch</h5>
+
+            <h3>$4.0</h3>
+
+            <p class="card-text">Refreshing red fruit punch served chilled.</p>
+
+             <!-- Card 1 -->
+            <button class="add-to-cart" data-id="1">Add to cart</button>
+
+            <button onclick="singleproduct(1)">Details</button>
+          </div>
+        </div>
+        <!--card 2-->
+        <div class="card" style="width: 19rem" data-name="Fresh Orange juice">
+          <img src="images.jpg" class="card-img-top" alt="Fresh Orange juice" />
+
+          <div class="card-body">
+            <h5 class="card-title">Fresh Orange juice</h5>
+
+            <h3>$3.0</h3>
+
+            <p class="card-text">
+              Fresh and refreshing orange juice with a naturally citrusy taste.
+            </p>
+
+           <!-- Card 2 -->
+            <button class="add-to-cart" data-id="2">Add to cart</button>
+
+            <button onclick="singleproduct(2)">Details</button>
+          </div>
+        </div>
+        <!--card 3-->
+        <div class="card" style="width: 19rem" data-name="Classic Beer">
+          <img
+            src="istockphoto-1165339040-612x612.jpg"
+            class="card-img-top"
+            alt="Classic Beer"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title">Classic Beer</h5>
+
+            <h3>$5.0</h3>
+
+            <p class="card-text">
+              A selection of classic beverages served chilled.
+            </p>
+
+            <!-- Card 3 -->
+            <button class="add-to-cart" data-id="3">Add to cart</button>
+
+            <button onclick="singleproduct(3)">Details</button>
+          </div>
+        </div>
+        <!--card 4-->
+        <div
+          class="card"
+          style="width: 19rem"
+          data-name="Signature Orange Cocktail"
+        >
+          <img
+            src="istockphoto-2159060475-612x612.jpg"
+            class="card-img-top"
+            alt="Signature Orange Cocktail"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title">Signature Orange Cocktail</h5>
+
+            <h3>$4.0</h3>
+
+            <p class="card-text">
+              A stylish orange-colored signature cocktail.
+            </p>
+
+            <!-- Card 4 -->
+            <button class="add-to-cart" data-id="4">Add to cart</button>
+
+            <button onclick="singleproduct(4)">Details</button>
+          </div>
+        </div>
+        <!--card 5-->
+        <div class="card" style="width: 19rem" data-name="Fresh Apple Juice">
+          <img
+            src="istockphoto-503096289-612x612.jpg"
+            class="card-img-top"
+            alt="Fresh Apple Juice"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title">Fresh Apple Juice</h5>
+
+            <h3>$3.0</h3>
+
+            <p class="card-text">Refreshing red fruit punch served chilled.</p>
+
+           <!-- Card 5 -->
+            <button class="add-to-cart" data-id="5">Add to cart</button>
+
+            <button onclick="singleproduct(5)">Details</button>
+          </div>
+        </div>
+        <!--card 6-->
+        <div class="card" style="width: 19rem" data-name="Fresh Lemon Juice">
+          <img
+            src="glass-cup-fresh-lemon-juice-wooden-board_114579-53580.avif"
+            class="card-img-top"
+            alt="Fresh Lemon Juice"
+          />
+
+          <div class="card-body">
+            <h5 class="card-title">Fresh Lemon Juice</h5>
+
+            <h3>$2.0</h3>
+
+            <p class="card-text">Refreshing red fruit punch served chilled.</p>
+            <!-- Card 6 -->
+            <button class="add-to-cart" data-id="6">Add to cart</button>
+
+            <button onclick="singleproduct(6)">Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="cart-container">
+        <h4 class="cart-total">Total cart: <span id="count">0</span></h4>
+        <hr />
+        <div class="cart-heading">
+          <h4>SL</h4>
+          <h4>img</h4>
+          <h4>Name</h4>
+          <h4>Price</h4>
+        </div>
+        <hr>
+        <div class="cart-main-container" id="cart-main-container"></div>
+        <hr />
+        <h2>Total: <span id="total"> </span></h2>
+      </div>
+    </div>
+    <!-- Product Details Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 class="modal-title">Product Details</h5>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body" id="product-details">
+            <!-- JavaScript এখানে product details বসাবে -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="myproject.js"></script>
+  </body>
+</html>
